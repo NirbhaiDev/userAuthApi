@@ -23,8 +23,6 @@ app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
 
-console.log('----- jay shree ------');
-console.log('----- jay man laxmi ------');
 
 
 app.listen(800, () => {
