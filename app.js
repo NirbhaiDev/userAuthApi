@@ -7,6 +7,7 @@ const connect = require('./db/connect');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
+const dummyRouter = require('./routes/dummy');
 
 const app = express();
 
@@ -22,9 +23,10 @@ app.use(morgan("common"));
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
+app.use("/api/dumy", dummyRouter);
 
 
 
-app.listen(800, () => {
+app.listen(800 || process.env.PORT, () => {
   console.log("listening on http://localhost:800");
 });
