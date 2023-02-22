@@ -2,8 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const PORT = process.env.PORT || 800;
 // requiring files in this ..........
-const connect = require('./db/connect');
+// const connect = require('./db/connect');
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
@@ -12,7 +13,7 @@ const dummyRouter = require('./routes/dummy');
 const app = express();
 
 // connecting with the database ...
-connect();
+// connect();
 
 // middlewares ................
 app.use(express.json());
@@ -27,6 +28,6 @@ app.use("/api/dumy", dummyRouter);
 
 
 
-app.listen(800 || process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log("listening on http://localhost:800");
 });
